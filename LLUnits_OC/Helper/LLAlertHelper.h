@@ -16,8 +16,16 @@ typedef void (^HandleAction)(void);
 // 普通提示框
 + (void)showAlert:(NSString *)title message:(NSString*)message;
 
+// 询问提示框
++ (void)showAlert:(NSString *)title
+          message:(NSString*)message
+            allow:(void (^ __nullable)(UIAlertAction *action))allowHandler
+           cancel:(void (^ __nullable)(UIAlertAction *action))cancelHandler;
+
+// 显示弹框
 + (void)showAlert:(UIAlertController *)alert;
 
+// 获取顶层视图控制器
 + (UIViewController *)topViewController;
 
 @end

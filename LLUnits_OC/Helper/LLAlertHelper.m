@@ -23,6 +23,25 @@
     [self showAlert:alert];
 }
 
+// 询问提示框
++ (void)showAlert:(NSString *)title
+          message:(NSString*)message
+            allow:(void (^ __nullable)(UIAlertAction *action))allowHandler
+           cancel:(void (^ __nullable)(UIAlertAction *action))cancelHandler {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:title
+                                                                   message:message
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *allowAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault
+                                                          handler:allowHandler];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel
+                                                        handler:cancelHandler];
+    
+    [alert addAction:allowAction];
+    [alert addAction:cancelAction];
+
+    [self showAlert:alert];
+}
+
 + (void)showAlert:(UIAlertController *)alert {
     UIViewController *viewController = [[self class] topViewController];
     dispatch_async(dispatch_get_main_queue(), ^{

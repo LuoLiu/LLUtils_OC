@@ -24,15 +24,15 @@ typedef NS_ENUM(NSUInteger, LLPermissionType) {
     LLPermissionTypeReminder,           // 提醒事项
 };
 
-typedef NS_ENUM(NSUInteger, LLPermissionAuthorizationStatus) {
-    LLPermissionAuthorizationStatusAuthorized = 0,
-    LLPermissionAuthorizationStatusDenied,
-    LLPermissionAuthorizationStatusNotDetermined,
-    LLPermissionAuthorizationStatusRestricted,
-    LLPermissionAuthorizationStatusLocationAlways,
-    LLPermissionAuthorizationStatusLocationWhenInUse,
-    LLPermissionAuthorizationStatusUnkonwn,
-};
+//typedef NS_ENUM(NSUInteger, LLPermissionAuthorizationStatus) {
+//    LLPermissionAuthorizationStatusAuthorized = 0,
+//    LLPermissionAuthorizationStatusDenied,
+//    LLPermissionAuthorizationStatusNotDetermined,
+//    LLPermissionAuthorizationStatusRestricted,
+//    LLPermissionAuthorizationStatusLocationAlways,
+//    LLPermissionAuthorizationStatusLocationWhenInUse,
+//    LLPermissionAuthorizationStatusUnkonwn,
+//};
 
 @interface LLPermissionManager : NSObject
 
@@ -43,6 +43,6 @@ typedef NS_ENUM(NSUInteger, LLPermissionAuthorizationStatus) {
  * @param type `The enumeration type for access permission` -> 获取权限枚举类型
  * @param completion `A block for the permission result and the value of authorization status` -> 获取权限结果和对应权限状态的block
  */
-- (void)accessLLPermissionWithType:(LLPermissionType)type completion:(void(^)(BOOL response, LLPermissionAuthorizationStatus status))completion;
+- (void)accessLLPermissionWithType:(LLPermissionType)type completion:(void(^)(BOOL response))completion;
 
 @end

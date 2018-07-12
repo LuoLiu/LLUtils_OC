@@ -7,6 +7,7 @@
 //
 
 #import "LLPermissionManager.h"
+
 #import <Photos/Photos.h>
 #import <AVFoundation/AVFoundation.h>
 #import <EventKit/EventKit.h>
@@ -17,6 +18,10 @@
 #import <UserNotifications/UserNotifications.h>
 #import <CoreBluetooth/CoreBluetooth.h>
 #import <CoreLocation/CoreLocation.h>
+
+#import "LLAlertHelper.h"
+
+#define APPDisplayName    [[NSBundle mainBundle] infoDictionary][@"CFBundleDisplayName"]
 
 static LLPermissionManager *sharedManager = nil;
 static NSInteger const LLPermissionTypeLocationDistanceFilter = 10; //`Positioning accuracy` -> 定位精度
@@ -31,73 +36,76 @@ static NSInteger const LLPermissionTypeLocationDistanceFilter = 10; //`Positioni
     return sharedManager;
 }
 
-- (void)accessLLPermissionWithType:(LLPermissionType)type completion:(void(^)(BOOL response, LLPermissionAuthorizationStatus status))completion {
+- (void)accessLLPermissionWithType:(LLPermissionType)type completion:(void(^)(BOOL response))completion {
     switch (type) {
         case LLPermissionTypePhoto: {
+            PHAuthorizationStatus status = [PHPhotoLibrary authorizationStatus];
+            if (status == PHAuthorizationStatusDenied || status == PHAuthorizationStatusRestricted) {
+                [self showCustomRequestAlertWithPermissionName:@"照片"];
+                return;
+            }
+            
             [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
-                if (status == PHAuthorizationStatusDenied) {
-                    completion(NO,LLPermissionAuthorizationStatusDenied);
-                } else if (status == PHAuthorizationStatusNotDetermined) {
-                    completion(NO,LLPermissionAuthorizationStatusNotDetermined);
-                } else if (status == PHAuthorizationStatusRestricted) {
-                    completion(NO,LLPermissionAuthorizationStatusRestricted);
-                } else if (status == PHAuthorizationStatusAuthorized) {
-                    completion(YES,LLPermissionAuthorizationStatusAuthorized);
+                if (status == PHAuthorizationStatusAuthorized) {
+                    completion(YES);
+                } else {
+                    completion(NO);
                 }
             }];
-        }break;
+        }
+            break;
             
         case LLPermissionTypeCamera: {
+            AVAuthorizationStatus status = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
+            if (status == AVAuthorizationStatusDenied || status == AVAuthorizationStatusRestricted) {
+                [self showCustomRequestAlertWithPermissionName:@"相机"];
+                return;
+            }
             [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
-                AVAuthorizationStatus status = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
                 if (granted) {
-                    completion(YES,LLPermissionAuthorizationStatusAuthorized);
+                    completion(YES);
                 } else {
-                    if (status == AVAuthorizationStatusDenied) {
-                        completion(NO,LLPermissionAuthorizationStatusDenied);
-                    } else if (status == AVAuthorizationStatusNotDetermined) {
-                        completion(NO,LLPermissionAuthorizationStatusNotDetermined);
-                    } else if (status == AVAuthorizationStatusRestricted) {
-                        completion(NO,LLPermissionAuthorizationStatusRestricted);
-                    }
+                    completion(NO);
                 }
             }];
-        }break;
+        }
+            break;
             
         case LLPermissionTypeMedia: {
             if (@available(iOS 9.3, *)) {
+                MPMediaLibraryAuthorizationStatus status = [MPMediaLibrary authorizationStatus];
+                if (status == MPMediaLibraryAuthorizationStatusDenied || status == MPMediaLibraryAuthorizationStatusRestricted) {
+                    [self showCustomRequestAlertWithPermissionName:@"媒体资料库"];
+                    return;
+                }
                 [MPMediaLibrary requestAuthorization:^(MPMediaLibraryAuthorizationStatus status) {
-                    if (status == MPMediaLibraryAuthorizationStatusDenied) {
-                        completion(NO,LLPermissionAuthorizationStatusDenied);
-                    } else if (status == MPMediaLibraryAuthorizationStatusNotDetermined) {
-                        completion(NO,LLPermissionAuthorizationStatusNotDetermined);
-                    } else if (status == MPMediaLibraryAuthorizationStatusRestricted) {
-                        completion(NO,LLPermissionAuthorizationStatusRestricted);
-                    } else if (status == MPMediaLibraryAuthorizationStatusAuthorized) {
-                        completion(YES,LLPermissionAuthorizationStatusAuthorized);
+                    if (status == MPMediaLibraryAuthorizationStatusAuthorized) {
+                        completion(YES);
+                    } else {
+                        completion(NO);
                     }
                 }];
             } else {
                 NSLog(@"'MPMediaLibrary' is only available on iOS 10.0 or newer");
             }
-        }break;
+        }
+            break;
             
         case LLPermissionTypeMicrophone: {
+            AVAuthorizationStatus status = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeAudio];
+            if (status == AVAuthorizationStatusDenied || status == AVAuthorizationStatusRestricted) {
+                [self showCustomRequestAlertWithPermissionName:@"麦克风"];
+                return;
+            }
             [AVCaptureDevice requestAccessForMediaType:AVMediaTypeAudio completionHandler:^(BOOL granted) {
-                AVAuthorizationStatus status = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeAudio];
                 if (granted) {
-                    completion(YES,LLPermissionAuthorizationStatusAuthorized);
+                    completion(YES);
                 } else {
-                    if (status == AVAuthorizationStatusDenied) {
-                        completion(NO,LLPermissionAuthorizationStatusDenied);
-                    } else if (status == AVAuthorizationStatusNotDetermined) {
-                        completion(NO,LLPermissionAuthorizationStatusNotDetermined);
-                    } else if (status == AVAuthorizationStatusRestricted) {
-                        completion(NO,LLPermissionAuthorizationStatusRestricted);
-                    }
+                    completion(NO);
                 }
             }];
-        }break;
+        }
+            break;
             
         case LLPermissionTypeLocation: {
             if ([CLLocationManager locationServicesEnabled]) {
@@ -109,27 +117,28 @@ static NSInteger const LLPermissionTypeLocationDistanceFilter = 10; //`Positioni
                 [locationManager startUpdatingLocation];
             }
             CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
-            if (status == kCLAuthorizationStatusAuthorizedAlways) {
-                completion(YES,LLPermissionAuthorizationStatusLocationAlways);
-            } else if (status == kCLAuthorizationStatusAuthorizedWhenInUse) {
-                completion(YES,LLPermissionAuthorizationStatusLocationWhenInUse);
-            } else if (status == kCLAuthorizationStatusDenied) {
-                completion(NO,LLPermissionAuthorizationStatusDenied);
-            } else if (status == kCLAuthorizationStatusNotDetermined) {
-                completion(NO,LLPermissionAuthorizationStatusNotDetermined);
-            } else if (status == kCLAuthorizationStatusRestricted) {
-                completion(NO,LLPermissionAuthorizationStatusRestricted);
+            if (status == kCLAuthorizationStatusDenied || status == kCLAuthorizationStatusRestricted) {
+                [self showCustomRequestAlertWithPermissionName:@"位置"];
+                return;
             }
-        }break;
+            if (status == kCLAuthorizationStatusAuthorizedAlways) {
+                completion(YES);
+            } else if (status == kCLAuthorizationStatusAuthorizedWhenInUse) {
+                completion(YES);
+            } else {
+                completion(NO);
+            }
+        }
+            break;
             
         case LLPermissionTypeBluetooth: {
             if (@available(iOS 10.0, *)) {
                 CBCentralManager *centralManager = [[CBCentralManager alloc] init];
                 CBManagerState state = [centralManager state];
                 if (state == CBManagerStateUnsupported || state == CBManagerStateUnauthorized || state == CBManagerStateUnknown) {
-                    completion(NO,LLPermissionAuthorizationStatusDenied);
+                    completion(NO);
                 } else {
-                    completion(YES,LLPermissionAuthorizationStatusAuthorized);
+                    completion(YES);
                 }
             } else {
                 NSLog(@"'CBManagerState' is only available on iOS 10.0 or newer");
@@ -140,14 +149,12 @@ static NSInteger const LLPermissionTypeLocationDistanceFilter = 10; //`Positioni
         case LLPermissionTypePushNotification: {
             if (@available(iOS 10.0, *)) {
                 UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
-                UNAuthorizationOptions types=UNAuthorizationOptionBadge|UNAuthorizationOptionAlert|UNAuthorizationOptionSound;
+                UNAuthorizationOptions types = UNAuthorizationOptionBadge|UNAuthorizationOptionAlert|UNAuthorizationOptionSound;
                 [center requestAuthorizationWithOptions:types completionHandler:^(BOOL granted, NSError * _Nullable error) {
                     if (granted) {
-                        [center getNotificationSettingsWithCompletionHandler:^(UNNotificationSettings * _Nonnull settings) {
-                            //
-                        }];
+                        completion(YES);
                     } else {
-                        [[UIApplication sharedApplication]openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString] options:@{UIApplicationOpenURLOptionUniversalLinksOnly:@""} completionHandler:^(BOOL success) { }];
+                        completion(NO);
                     }
                 }];
             } else {
@@ -161,15 +168,16 @@ static NSInteger const LLPermissionTypeLocationDistanceFilter = 10; //`Positioni
             
         case LLPermissionTypeSpeech: {
             if (@available(iOS 10.0, *)) {
+                SFSpeechRecognizerAuthorizationStatus status = [SFSpeechRecognizer authorizationStatus];
+                if (status == SFSpeechRecognizerAuthorizationStatusDenied || status == SFSpeechRecognizerAuthorizationStatusRestricted) {
+                    [self showCustomRequestAlertWithPermissionName:@"语音识别"];
+                    return;
+                }
                 [SFSpeechRecognizer requestAuthorization:^(SFSpeechRecognizerAuthorizationStatus status) {
-                    if (status == SFSpeechRecognizerAuthorizationStatusDenied) {
-                        completion(NO,LLPermissionAuthorizationStatusDenied);
-                    } else if (status == SFSpeechRecognizerAuthorizationStatusNotDetermined) {
-                        completion(NO,LLPermissionAuthorizationStatusNotDetermined);
-                    } else if (status == SFSpeechRecognizerAuthorizationStatusRestricted) {
-                        completion(NO,LLPermissionAuthorizationStatusRestricted);
-                    } else if (status == SFSpeechRecognizerAuthorizationStatusAuthorized) {
-                        completion(YES,LLPermissionAuthorizationStatusAuthorized);
+                    if (status == SFSpeechRecognizerAuthorizationStatusAuthorized) {
+                        completion(YES);
+                    } else {
+                        completion(NO);
                     }
                 }];
             } else {
@@ -179,18 +187,16 @@ static NSInteger const LLPermissionTypeLocationDistanceFilter = 10; //`Positioni
             
         case LLPermissionTypeEvent: {
             EKEventStore *store = [[EKEventStore alloc] init];
+            EKAuthorizationStatus status = [EKEventStore authorizationStatusForEntityType:EKEntityTypeEvent];
+            if (status == EKAuthorizationStatusDenied || status == EKAuthorizationStatusRestricted) {
+                [self showCustomRequestAlertWithPermissionName:@"日历"];
+                return;
+            }
             [store requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError * _Nullable error) {
-                EKAuthorizationStatus status = [EKEventStore  authorizationStatusForEntityType:EKEntityTypeEvent];
                 if (granted) {
-                    completion(YES,LLPermissionAuthorizationStatusAuthorized);
+                    completion(YES);
                 } else {
-                    if (status == EKAuthorizationStatusDenied) {
-                        completion(NO,LLPermissionAuthorizationStatusDenied);
-                    } else if (status == EKAuthorizationStatusNotDetermined) {
-                        completion(NO,LLPermissionAuthorizationStatusNotDetermined);
-                    } else if (status == EKAuthorizationStatusRestricted) {
-                        completion(NO,LLPermissionAuthorizationStatusRestricted);
-                    }
+                    completion(NO);
                 }
             }];
         }
@@ -199,18 +205,16 @@ static NSInteger const LLPermissionTypeLocationDistanceFilter = 10; //`Positioni
         case LLPermissionTypeContact: {
             if (@available(iOS 9.0, *)) {
                 CNContactStore *contactStore = [[CNContactStore alloc] init];
+                CNAuthorizationStatus status = [CNContactStore authorizationStatusForEntityType:CNEntityTypeContacts];
+                if (status == CNAuthorizationStatusDenied || status == CNAuthorizationStatusRestricted) {
+                    [self showCustomRequestAlertWithPermissionName:@"通讯录"];
+                    return;
+                }
                 [contactStore requestAccessForEntityType:CNEntityTypeContacts completionHandler:^(BOOL granted, NSError * _Nullable error) {
-                    CNAuthorizationStatus status = [CNContactStore authorizationStatusForEntityType:CNEntityTypeContacts];
                     if (granted) {
-                        completion(YES,LLPermissionAuthorizationStatusAuthorized);
+                        completion(YES);
                     } else {
-                        if (status == CNAuthorizationStatusDenied) {
-                            completion(NO,LLPermissionAuthorizationStatusDenied);
-                        } else if (status == CNAuthorizationStatusRestricted) {
-                            completion(NO,LLPermissionAuthorizationStatusNotDetermined);
-                        } else if (status == CNAuthorizationStatusNotDetermined) {
-                            completion(NO,LLPermissionAuthorizationStatusRestricted);
-                        }
+                        completion(NO);
                     }
                 }];
             } else {
@@ -221,18 +225,16 @@ static NSInteger const LLPermissionTypeLocationDistanceFilter = 10; //`Positioni
             
         case LLPermissionTypeReminder: {
             EKEventStore *eventStore = [[EKEventStore alloc] init];
+            EKAuthorizationStatus status = [EKEventStore authorizationStatusForEntityType:EKEntityTypeEvent];
+            if (status == EKAuthorizationStatusDenied || status == EKAuthorizationStatusRestricted) {
+                [self showCustomRequestAlertWithPermissionName:@"日历"];
+                return;
+            }
             [eventStore requestAccessToEntityType:EKEntityTypeReminder completion:^(BOOL granted, NSError * _Nullable error) {
-                EKAuthorizationStatus status = [EKEventStore  authorizationStatusForEntityType:EKEntityTypeEvent];
                 if (granted) {
-                    completion(YES,LLPermissionAuthorizationStatusAuthorized);
+                    completion(YES);
                 } else {
-                    if (status == EKAuthorizationStatusDenied) {
-                        completion(NO,LLPermissionAuthorizationStatusDenied);
-                    } else if (status == EKAuthorizationStatusNotDetermined) {
-                        completion(NO,LLPermissionAuthorizationStatusNotDetermined);
-                    } else if (status == EKAuthorizationStatusRestricted) {
-                        completion(NO,LLPermissionAuthorizationStatusRestricted);
-                    }
+                    completion(NO);
                 }
             }];
         }
@@ -240,6 +242,16 @@ static NSInteger const LLPermissionTypeLocationDistanceFilter = 10; //`Positioni
         default:
             break;
     }
+}
+
+// 弹框提示跳转到系统设置界面
+- (void)showCustomRequestAlertWithPermissionName:(NSString *)permissionName {
+    NSString *message = [NSString stringWithFormat:@"%@需要获取您的%@权限，请到系统设置页面进行授权", APPDisplayName, permissionName];
+    [LLAlertHelper showAlert:@"提示" message:message allow:^(UIAlertAction *action) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
+    } cancel:^(UIAlertAction *action) {
+        //
+    }];
 }
 
 @end
