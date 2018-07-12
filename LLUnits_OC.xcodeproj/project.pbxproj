@@ -13,6 +13,16 @@
 		04AE7A4C20F723A000BA7D6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04AE7A4B20F723A000BA7D6A /* Assets.xcassets */; };
 		04AE7A4F20F723A000BA7D6A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04AE7A4D20F723A000BA7D6A /* LaunchScreen.storyboard */; };
 		04AE7A5220F723A000BA7D6A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AE7A5120F723A000BA7D6A /* main.m */; };
+		04AE7A9620F724FD00BA7D6A /* AppPurchaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AE7A6720F724FD00BA7D6A /* AppPurchaseManager.m */; };
+		04AE7A9720F724FD00BA7D6A /* LLAlertHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AE7A6820F724FD00BA7D6A /* LLAlertHelper.m */; };
+		04AE7AA620F724FD00BA7D6A /* LLDateFormatterHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AE7A8D20F724FD00BA7D6A /* LLDateFormatterHelper.m */; };
+		04AE7AB120F7270300BA7D6A /* UIViewController+BarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AE7AA920F7270200BA7D6A /* UIViewController+BarItem.m */; };
+		04AE7AB220F7270300BA7D6A /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AE7AAA20F7270200BA7D6A /* UIImage+Color.m */; };
+		04AE7AB320F7270300BA7D6A /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AE7AAB20F7270200BA7D6A /* UIColor+Hex.m */; };
+		04AE7AB420F7270300BA7D6A /* UIView+EasyLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AE7AAC20F7270300BA7D6A /* UIView+EasyLayout.m */; };
+		04AE7AC820F72BD400BA7D6A /* LLDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AE7ABF20F72BD300BA7D6A /* LLDatePickerView.m */; };
+		04AE7AC920F72BD400BA7D6A /* LLCustomPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AE7AC020F72BD300BA7D6A /* LLCustomPickerView.m */; };
+		04AE7ACA20F72BD400BA7D6A /* LLWaterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AE7AC120F72BD300BA7D6A /* LLWaterView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +36,26 @@
 		04AE7A4E20F723A000BA7D6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04AE7A5020F723A000BA7D6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04AE7A5120F723A000BA7D6A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		04AE7A5920F724FD00BA7D6A /* LLDateFormatterHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLDateFormatterHelper.h; sourceTree = "<group>"; };
+		04AE7A6720F724FD00BA7D6A /* AppPurchaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppPurchaseManager.m; sourceTree = "<group>"; };
+		04AE7A6820F724FD00BA7D6A /* LLAlertHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLAlertHelper.m; sourceTree = "<group>"; };
+		04AE7A8D20F724FD00BA7D6A /* LLDateFormatterHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLDateFormatterHelper.m; sourceTree = "<group>"; };
+		04AE7A8E20F724FD00BA7D6A /* AppPurchaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppPurchaseManager.h; sourceTree = "<group>"; };
+		04AE7A8F20F724FD00BA7D6A /* LLAlertHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLAlertHelper.h; sourceTree = "<group>"; };
+		04AE7AA920F7270200BA7D6A /* UIViewController+BarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BarItem.m"; sourceTree = "<group>"; };
+		04AE7AAA20F7270200BA7D6A /* UIImage+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Color.m"; sourceTree = "<group>"; };
+		04AE7AAB20F7270200BA7D6A /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
+		04AE7AAC20F7270300BA7D6A /* UIView+EasyLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+EasyLayout.m"; sourceTree = "<group>"; };
+		04AE7AAD20F7270300BA7D6A /* UIImage+Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Color.h"; sourceTree = "<group>"; };
+		04AE7AAE20F7270300BA7D6A /* UIViewController+BarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+BarItem.h"; sourceTree = "<group>"; };
+		04AE7AAF20F7270300BA7D6A /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
+		04AE7AB020F7270300BA7D6A /* UIView+EasyLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+EasyLayout.h"; sourceTree = "<group>"; };
+		04AE7ABE20F72BD300BA7D6A /* LLWaterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLWaterView.h; sourceTree = "<group>"; };
+		04AE7ABF20F72BD300BA7D6A /* LLDatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLDatePickerView.m; sourceTree = "<group>"; };
+		04AE7AC020F72BD300BA7D6A /* LLCustomPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLCustomPickerView.m; sourceTree = "<group>"; };
+		04AE7AC120F72BD300BA7D6A /* LLWaterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLWaterView.m; sourceTree = "<group>"; };
+		04AE7AC320F72BD300BA7D6A /* LLCustomPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLCustomPickerView.h; sourceTree = "<group>"; };
+		04AE7AC420F72BD300BA7D6A /* LLDatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLDatePickerView.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +88,10 @@
 		04AE7A4120F7239E00BA7D6A /* LLUnits_OC */ = {
 			isa = PBXGroup;
 			children = (
+				04AE7AA820F726DD00BA7D6A /* UIExtension */,
+				04AE7A5820F724FD00BA7D6A /* Service */,
+				04AE7AA720F7253800BA7D6A /* Helper */,
+				04AE7AB520F72BD300BA7D6A /* CustomView */,
 				04AE7A4220F7239E00BA7D6A /* AppDelegate.h */,
 				04AE7A4320F7239E00BA7D6A /* AppDelegate.m */,
 				04AE7A4520F7239E00BA7D6A /* ViewController.h */,
@@ -69,6 +103,70 @@
 				04AE7A5120F723A000BA7D6A /* main.m */,
 			);
 			path = LLUnits_OC;
+			sourceTree = "<group>";
+		};
+		04AE7A5820F724FD00BA7D6A /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				04AE7A8E20F724FD00BA7D6A /* AppPurchaseManager.h */,
+				04AE7A6720F724FD00BA7D6A /* AppPurchaseManager.m */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		04AE7AA720F7253800BA7D6A /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				04AE7A8F20F724FD00BA7D6A /* LLAlertHelper.h */,
+				04AE7A6820F724FD00BA7D6A /* LLAlertHelper.m */,
+				04AE7A5920F724FD00BA7D6A /* LLDateFormatterHelper.h */,
+				04AE7A8D20F724FD00BA7D6A /* LLDateFormatterHelper.m */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		04AE7AA820F726DD00BA7D6A /* UIExtension */ = {
+			isa = PBXGroup;
+			children = (
+				04AE7AAF20F7270300BA7D6A /* UIColor+Hex.h */,
+				04AE7AAB20F7270200BA7D6A /* UIColor+Hex.m */,
+				04AE7AAD20F7270300BA7D6A /* UIImage+Color.h */,
+				04AE7AAA20F7270200BA7D6A /* UIImage+Color.m */,
+				04AE7AB020F7270300BA7D6A /* UIView+EasyLayout.h */,
+				04AE7AAC20F7270300BA7D6A /* UIView+EasyLayout.m */,
+				04AE7AAE20F7270300BA7D6A /* UIViewController+BarItem.h */,
+				04AE7AA920F7270200BA7D6A /* UIViewController+BarItem.m */,
+			);
+			path = UIExtension;
+			sourceTree = "<group>";
+		};
+		04AE7AB520F72BD300BA7D6A /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				04AE7ACD20F72C5000BA7D6A /* 水球动画 */,
+				04AE7ACC20F72C3700BA7D6A /* 选择器 */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
+		04AE7ACC20F72C3700BA7D6A /* 选择器 */ = {
+			isa = PBXGroup;
+			children = (
+				04AE7AC420F72BD300BA7D6A /* LLDatePickerView.h */,
+				04AE7ABF20F72BD300BA7D6A /* LLDatePickerView.m */,
+				04AE7AC320F72BD300BA7D6A /* LLCustomPickerView.h */,
+				04AE7AC020F72BD300BA7D6A /* LLCustomPickerView.m */,
+			);
+			path = "选择器";
+			sourceTree = "<group>";
+		};
+		04AE7ACD20F72C5000BA7D6A /* 水球动画 */ = {
+			isa = PBXGroup;
+			children = (
+				04AE7ABE20F72BD300BA7D6A /* LLWaterView.h */,
+				04AE7AC120F72BD300BA7D6A /* LLWaterView.m */,
+			);
+			path = "水球动画";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,7 +240,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				04AE7A4720F7239E00BA7D6A /* ViewController.m in Sources */,
+				04AE7A9720F724FD00BA7D6A /* LLAlertHelper.m in Sources */,
+				04AE7A9620F724FD00BA7D6A /* AppPurchaseManager.m in Sources */,
+				04AE7AC920F72BD400BA7D6A /* LLCustomPickerView.m in Sources */,
+				04AE7AB120F7270300BA7D6A /* UIViewController+BarItem.m in Sources */,
+				04AE7AB320F7270300BA7D6A /* UIColor+Hex.m in Sources */,
+				04AE7AA620F724FD00BA7D6A /* LLDateFormatterHelper.m in Sources */,
+				04AE7AB220F7270300BA7D6A /* UIImage+Color.m in Sources */,
+				04AE7AC820F72BD400BA7D6A /* LLDatePickerView.m in Sources */,
 				04AE7A5220F723A000BA7D6A /* main.m in Sources */,
+				04AE7AB420F7270300BA7D6A /* UIView+EasyLayout.m in Sources */,
+				04AE7ACA20F72BD400BA7D6A /* LLWaterView.m in Sources */,
 				04AE7A4420F7239E00BA7D6A /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
