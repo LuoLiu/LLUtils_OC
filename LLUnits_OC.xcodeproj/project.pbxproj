@@ -23,6 +23,7 @@
 		04AE7AC820F72BD400BA7D6A /* LLDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AE7ABF20F72BD300BA7D6A /* LLDatePickerView.m */; };
 		04AE7AC920F72BD400BA7D6A /* LLCustomPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AE7AC020F72BD300BA7D6A /* LLCustomPickerView.m */; };
 		04AE7ACA20F72BD400BA7D6A /* LLWaterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AE7AC120F72BD300BA7D6A /* LLWaterView.m */; };
+		04AE7AD520F74A1300BA7D6A /* LLPermissionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AE7AD420F74A1300BA7D6A /* LLPermissionManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,8 @@
 		04AE7AC120F72BD300BA7D6A /* LLWaterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLWaterView.m; sourceTree = "<group>"; };
 		04AE7AC320F72BD300BA7D6A /* LLCustomPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLCustomPickerView.h; sourceTree = "<group>"; };
 		04AE7AC420F72BD300BA7D6A /* LLDatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLDatePickerView.h; sourceTree = "<group>"; };
+		04AE7AD320F74A1300BA7D6A /* LLPermissionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLPermissionManager.h; sourceTree = "<group>"; };
+		04AE7AD420F74A1300BA7D6A /* LLPermissionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLPermissionManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,8 +111,8 @@
 		04AE7A5820F724FD00BA7D6A /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				04AE7A8E20F724FD00BA7D6A /* AppPurchaseManager.h */,
-				04AE7A6720F724FD00BA7D6A /* AppPurchaseManager.m */,
+				04AE7AD220F74A1300BA7D6A /* 权限请求 */,
+				04AE7AD120F749FD00BA7D6A /* 内购 */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -167,6 +170,24 @@
 				04AE7AC120F72BD300BA7D6A /* LLWaterView.m */,
 			);
 			path = "水球动画";
+			sourceTree = "<group>";
+		};
+		04AE7AD120F749FD00BA7D6A /* 内购 */ = {
+			isa = PBXGroup;
+			children = (
+				04AE7A8E20F724FD00BA7D6A /* AppPurchaseManager.h */,
+				04AE7A6720F724FD00BA7D6A /* AppPurchaseManager.m */,
+			);
+			path = "内购";
+			sourceTree = "<group>";
+		};
+		04AE7AD220F74A1300BA7D6A /* 权限请求 */ = {
+			isa = PBXGroup;
+			children = (
+				04AE7AD320F74A1300BA7D6A /* LLPermissionManager.h */,
+				04AE7AD420F74A1300BA7D6A /* LLPermissionManager.m */,
+			);
+			path = "权限请求";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,6 +263,7 @@
 				04AE7A4720F7239E00BA7D6A /* ViewController.m in Sources */,
 				04AE7A9720F724FD00BA7D6A /* LLAlertHelper.m in Sources */,
 				04AE7A9620F724FD00BA7D6A /* AppPurchaseManager.m in Sources */,
+				04AE7AD520F74A1300BA7D6A /* LLPermissionManager.m in Sources */,
 				04AE7AC920F72BD400BA7D6A /* LLCustomPickerView.m in Sources */,
 				04AE7AB120F7270300BA7D6A /* UIViewController+BarItem.m in Sources */,
 				04AE7AB320F7270300BA7D6A /* UIColor+Hex.m in Sources */,

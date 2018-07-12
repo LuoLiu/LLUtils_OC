@@ -20,11 +20,11 @@
 
 @end
 
+static AppPurchaseManager *sharedManager = nil;
+
 @implementation AppPurchaseManager
 
 + (AppPurchaseManager *)sharedManager {
-    static AppPurchaseManager *sharedManager = nil;
-    
     static dispatch_once_t token;
     dispatch_once(&token, ^{
         sharedManager = [[self alloc] init];
