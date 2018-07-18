@@ -41,7 +41,7 @@ static NSInteger const LLPermissionTypeLocationDistanceFilter = 10; //`Positioni
         case LLPermissionTypePhoto: {
             PHAuthorizationStatus status = [PHPhotoLibrary authorizationStatus];
             if (status == PHAuthorizationStatusDenied || status == PHAuthorizationStatusRestricted) {
-                [self showCustomRequestAlertWithPermissionName:@"照片"];
+                [self showCustomRequestAlertWithPermissionName:EasyLocalizedString(@"Photos")];
                 return;
             }
             
@@ -58,7 +58,7 @@ static NSInteger const LLPermissionTypeLocationDistanceFilter = 10; //`Positioni
         case LLPermissionTypeCamera: {
             AVAuthorizationStatus status = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
             if (status == AVAuthorizationStatusDenied || status == AVAuthorizationStatusRestricted) {
-                [self showCustomRequestAlertWithPermissionName:@"相机"];
+                [self showCustomRequestAlertWithPermissionName:EasyLocalizedString(@"Camera")];
                 return;
             }
             [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
@@ -75,7 +75,7 @@ static NSInteger const LLPermissionTypeLocationDistanceFilter = 10; //`Positioni
             if (@available(iOS 9.3, *)) {
                 MPMediaLibraryAuthorizationStatus status = [MPMediaLibrary authorizationStatus];
                 if (status == MPMediaLibraryAuthorizationStatusDenied || status == MPMediaLibraryAuthorizationStatusRestricted) {
-                    [self showCustomRequestAlertWithPermissionName:@"媒体资料库"];
+                    [self showCustomRequestAlertWithPermissionName:EasyLocalizedString(@"MediaLibrary")];
                     return;
                 }
                 [MPMediaLibrary requestAuthorization:^(MPMediaLibraryAuthorizationStatus status) {
@@ -94,7 +94,7 @@ static NSInteger const LLPermissionTypeLocationDistanceFilter = 10; //`Positioni
         case LLPermissionTypeMicrophone: {
             AVAuthorizationStatus status = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeAudio];
             if (status == AVAuthorizationStatusDenied || status == AVAuthorizationStatusRestricted) {
-                [self showCustomRequestAlertWithPermissionName:@"麦克风"];
+                [self showCustomRequestAlertWithPermissionName:EasyLocalizedString(@"Microphone")];
                 return;
             }
             [AVCaptureDevice requestAccessForMediaType:AVMediaTypeAudio completionHandler:^(BOOL granted) {
@@ -118,7 +118,7 @@ static NSInteger const LLPermissionTypeLocationDistanceFilter = 10; //`Positioni
             }
             CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
             if (status == kCLAuthorizationStatusDenied || status == kCLAuthorizationStatusRestricted) {
-                [self showCustomRequestAlertWithPermissionName:@"位置"];
+                [self showCustomRequestAlertWithPermissionName:EasyLocalizedString(@"Location")];
                 return;
             }
             if (status == kCLAuthorizationStatusAuthorizedAlways) {
@@ -170,7 +170,7 @@ static NSInteger const LLPermissionTypeLocationDistanceFilter = 10; //`Positioni
             if (@available(iOS 10.0, *)) {
                 SFSpeechRecognizerAuthorizationStatus status = [SFSpeechRecognizer authorizationStatus];
                 if (status == SFSpeechRecognizerAuthorizationStatusDenied || status == SFSpeechRecognizerAuthorizationStatusRestricted) {
-                    [self showCustomRequestAlertWithPermissionName:@"语音识别"];
+                    [self showCustomRequestAlertWithPermissionName:EasyLocalizedString(@"SpeechRecognizer")];
                     return;
                 }
                 [SFSpeechRecognizer requestAuthorization:^(SFSpeechRecognizerAuthorizationStatus status) {
@@ -189,7 +189,7 @@ static NSInteger const LLPermissionTypeLocationDistanceFilter = 10; //`Positioni
             EKEventStore *store = [[EKEventStore alloc] init];
             EKAuthorizationStatus status = [EKEventStore authorizationStatusForEntityType:EKEntityTypeEvent];
             if (status == EKAuthorizationStatusDenied || status == EKAuthorizationStatusRestricted) {
-                [self showCustomRequestAlertWithPermissionName:@"日历"];
+                [self showCustomRequestAlertWithPermissionName:EasyLocalizedString(@"Calendar")];
                 return;
             }
             [store requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError * _Nullable error) {
@@ -207,7 +207,7 @@ static NSInteger const LLPermissionTypeLocationDistanceFilter = 10; //`Positioni
                 CNContactStore *contactStore = [[CNContactStore alloc] init];
                 CNAuthorizationStatus status = [CNContactStore authorizationStatusForEntityType:CNEntityTypeContacts];
                 if (status == CNAuthorizationStatusDenied || status == CNAuthorizationStatusRestricted) {
-                    [self showCustomRequestAlertWithPermissionName:@"通讯录"];
+                    [self showCustomRequestAlertWithPermissionName:EasyLocalizedString(@"Contacts")];
                     return;
                 }
                 [contactStore requestAccessForEntityType:CNEntityTypeContacts completionHandler:^(BOOL granted, NSError * _Nullable error) {
@@ -227,7 +227,7 @@ static NSInteger const LLPermissionTypeLocationDistanceFilter = 10; //`Positioni
             EKEventStore *eventStore = [[EKEventStore alloc] init];
             EKAuthorizationStatus status = [EKEventStore authorizationStatusForEntityType:EKEntityTypeEvent];
             if (status == EKAuthorizationStatusDenied || status == EKAuthorizationStatusRestricted) {
-                [self showCustomRequestAlertWithPermissionName:@"日历"];
+                [self showCustomRequestAlertWithPermissionName:EasyLocalizedString(@"Calendar")];
                 return;
             }
             [eventStore requestAccessToEntityType:EKEntityTypeReminder completion:^(BOOL granted, NSError * _Nullable error) {
@@ -246,8 +246,8 @@ static NSInteger const LLPermissionTypeLocationDistanceFilter = 10; //`Positioni
 
 // 弹框提示跳转到系统设置界面
 - (void)showCustomRequestAlertWithPermissionName:(NSString *)permissionName {
-    NSString *message = [NSString stringWithFormat:@"%@需要获取您的%@权限，请到系统设置页面进行授权", APPDisplayName, permissionName];
-    [LLAlertHelper showAlert:@"提示" message:message allow:^(UIAlertAction *action) {
+    NSString *message = [NSString stringWithFormat:EasyLocalizedString(@"%@ want to get your %@ permisson，you can open it in Settings."), APPDisplayName, permissionName];
+    [LLAlertHelper showAlert:EasyLocalizedString(@"Tips") message:message allow:^(UIAlertAction *action) {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
     } cancel:^(UIAlertAction *action) {
         //

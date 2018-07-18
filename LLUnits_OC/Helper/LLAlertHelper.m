@@ -15,7 +15,7 @@
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:title
                                                                    message:message
                                                             preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault
+    UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:EasyLocalizedString(@"OK") style:UIAlertActionStyleDefault
                                                           handler:nil];
     
     [alert addAction:defaultAction];
@@ -31,10 +31,12 @@
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:title
                                                                    message:message
                                                             preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *allowAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault
-                                                          handler:allowHandler];
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel
-                                                        handler:cancelHandler];
+    UIAlertAction *allowAction = [UIAlertAction actionWithTitle:EasyLocalizedString(@"OK")
+                                                          style:UIAlertActionStyleDefault
+                                                        handler:allowHandler];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:EasyLocalizedString(@"Cancel")
+                                                           style:UIAlertActionStyleCancel
+                                                         handler:cancelHandler];
     
     [alert addAction:allowAction];
     [alert addAction:cancelAction];

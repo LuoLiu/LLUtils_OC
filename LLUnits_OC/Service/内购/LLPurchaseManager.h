@@ -1,5 +1,5 @@
 //
-//  AppPurchaseManager.h
+//  LLPurchaseManager.h
 //  LLUnits_OC
 //
 //  Created by mac on 2018/6/10.
@@ -12,7 +12,7 @@
 /**
  *  内购工具的代理
  */
-@protocol AppPurchaseManagerDelegate <NSObject>
+@protocol LLPurchaseManagerDelegate <NSObject>
 
 /**
  *  代理：已刷新可购买商品
@@ -70,13 +70,13 @@
 
 #pragma mark - 内购工具
 
-@interface AppPurchaseManager : NSObject
+@interface LLPurchaseManager : NSObject
 
 typedef void(^boolBlock)(BOOL successed,BOOL result);
 
 typedef void(^dicBlock)(BOOL successed, NSDictionary *result);
 
-@property (nonatomic,weak) id <AppPurchaseManagerDelegate> delegate;
+@property (nonatomic,weak) id <LLPurchaseManagerDelegate> delegate;
 
 // 是否去广告
 - (BOOL)isPurchase;
@@ -84,9 +84,9 @@ typedef void(^dicBlock)(BOOL successed, NSDictionary *result);
 /**
  *  单例
  *
- *  @return YQInAppPurchaseManager
+ *  @return YQInLLPurchaseManager
  */
-+ (AppPurchaseManager *)sharedManager;
++ (LLPurchaseManager *)sharedManager;
 
 /**
  *  购买完后是否在iOS端向服务器验证一次,默认为YES

@@ -41,7 +41,7 @@ static const NSInteger kToolBarHeight = 44;
 
 - (UIView *)containerView {
     if (!_containerView) {
-        _containerView = [[UIView alloc]initWithFrame:CGRectMake(0, UIScreen.mainScreen.bounds.size.height - kPickerViewHeight, UIScreen.mainScreen.bounds.size.width, kPickerViewHeight)];
+        _containerView = [[UIView alloc]initWithFrame:CGRectMake(0, SCREEN_HEIGHT - kPickerViewHeight, SCREEN_WIDTH, kPickerViewHeight)];
         _containerView.backgroundColor = [UIColor blueColor];
     }
     return _containerView;
@@ -49,10 +49,10 @@ static const NSInteger kToolBarHeight = 44;
 
 - (UIButton *)confirmButton {
     if (!_confirmButton) {
-        _confirmButton = [[UIButton alloc] initWithFrame:CGRectMake(UIScreen.mainScreen.bounds.size.width-70, 0, 60, 44)];
+        _confirmButton = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-70, 0, 60, 44)];
         _confirmButton.backgroundColor = UIColor.clearColor;
         _confirmButton.titleLabel.font = [UIFont boldSystemFontOfSize:18];
-        [_confirmButton setTitle:@"完成" forState:UIControlStateNormal];
+        [_confirmButton setTitle:EasyLocalizedString(@"Done") forState:UIControlStateNormal];
         [_confirmButton setTitleColor:UIColor.whiteColor forState:UIControlStateNormal];
         [_confirmButton addTarget:self action:@selector(confirm:) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -65,7 +65,7 @@ static const NSInteger kToolBarHeight = 44;
         _cancelButton = [[UIButton alloc] initWithFrame:CGRectMake(10, 0, 60, 44)];
         _cancelButton.backgroundColor = UIColor.clearColor;
         _cancelButton.titleLabel.font = [UIFont boldSystemFontOfSize:18];
-        [_cancelButton setTitle:@"取消" forState:UIControlStateNormal];
+        [_cancelButton setTitle:EasyLocalizedString(@"Cancel") forState:UIControlStateNormal];
         [_cancelButton setTitleColor:UIColor.whiteColor forState:UIControlStateNormal];
         [_cancelButton addTarget:self action:@selector(cancel:) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -75,7 +75,7 @@ static const NSInteger kToolBarHeight = 44;
 
 - (UIDatePicker *)datePicker {
     if (!_datePicker) {
-        _datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, kToolBarHeight, UIScreen.mainScreen.bounds.size.width, kPickerViewHeight - kToolBarHeight)];
+        _datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, kToolBarHeight, SCREEN_WIDTH, kPickerViewHeight - kToolBarHeight)];
         _datePicker.backgroundColor = UIColor.whiteColor;
         _datePicker.datePickerMode = UIDatePickerModeDate;
     }

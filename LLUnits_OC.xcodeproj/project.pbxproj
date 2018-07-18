@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		048158A620FF40DA00B0D220 /* LLPurchaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 048158A420FF40DA00B0D220 /* LLPurchaseManager.m */; };
+		048158AA20FF446C00B0D220 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 048158AC20FF446C00B0D220 /* Localizable.strings */; };
 		04AE7A4420F7239E00BA7D6A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AE7A4320F7239E00BA7D6A /* AppDelegate.m */; };
 		04AE7A4720F7239E00BA7D6A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AE7A4620F7239E00BA7D6A /* ViewController.m */; };
 		04AE7A4A20F7239E00BA7D6A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04AE7A4820F7239E00BA7D6A /* Main.storyboard */; };
 		04AE7A4C20F723A000BA7D6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04AE7A4B20F723A000BA7D6A /* Assets.xcassets */; };
 		04AE7A4F20F723A000BA7D6A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04AE7A4D20F723A000BA7D6A /* LaunchScreen.storyboard */; };
 		04AE7A5220F723A000BA7D6A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AE7A5120F723A000BA7D6A /* main.m */; };
-		04AE7A9620F724FD00BA7D6A /* AppPurchaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AE7A6720F724FD00BA7D6A /* AppPurchaseManager.m */; };
 		04AE7A9720F724FD00BA7D6A /* LLAlertHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AE7A6820F724FD00BA7D6A /* LLAlertHelper.m */; };
 		04AE7AA620F724FD00BA7D6A /* LLDateFormatterHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AE7A8D20F724FD00BA7D6A /* LLDateFormatterHelper.m */; };
 		04AE7AB120F7270300BA7D6A /* UIViewController+BarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AE7AA920F7270200BA7D6A /* UIViewController+BarItem.m */; };
@@ -27,6 +28,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		048158A420FF40DA00B0D220 /* LLPurchaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLPurchaseManager.m; sourceTree = "<group>"; };
+		048158A520FF40DA00B0D220 /* LLPurchaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLPurchaseManager.h; sourceTree = "<group>"; };
+		048158A720FF410B00B0D220 /* LLUnits_OC.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LLUnits_OC.pch; sourceTree = "<group>"; };
+		048158AB20FF446C00B0D220 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		048158AD20FF447700B0D220 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		048158AE20FF447700B0D220 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		048158AF20FF447700B0D220 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		04AE7A3F20F7239E00BA7D6A /* LLUnits_OC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LLUnits_OC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04AE7A4220F7239E00BA7D6A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		04AE7A4320F7239E00BA7D6A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -38,10 +46,8 @@
 		04AE7A5020F723A000BA7D6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04AE7A5120F723A000BA7D6A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		04AE7A5920F724FD00BA7D6A /* LLDateFormatterHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLDateFormatterHelper.h; sourceTree = "<group>"; };
-		04AE7A6720F724FD00BA7D6A /* AppPurchaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppPurchaseManager.m; sourceTree = "<group>"; };
 		04AE7A6820F724FD00BA7D6A /* LLAlertHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLAlertHelper.m; sourceTree = "<group>"; };
 		04AE7A8D20F724FD00BA7D6A /* LLDateFormatterHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLDateFormatterHelper.m; sourceTree = "<group>"; };
-		04AE7A8E20F724FD00BA7D6A /* AppPurchaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppPurchaseManager.h; sourceTree = "<group>"; };
 		04AE7A8F20F724FD00BA7D6A /* LLAlertHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLAlertHelper.h; sourceTree = "<group>"; };
 		04AE7AA920F7270200BA7D6A /* UIViewController+BarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BarItem.m"; sourceTree = "<group>"; };
 		04AE7AAA20F7270200BA7D6A /* UIImage+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Color.m"; sourceTree = "<group>"; };
@@ -91,7 +97,9 @@
 		04AE7A4120F7239E00BA7D6A /* LLUnits_OC */ = {
 			isa = PBXGroup;
 			children = (
-				04AE7AA820F726DD00BA7D6A /* UIExtension */,
+				048158A720FF410B00B0D220 /* LLUnits_OC.pch */,
+				048158AC20FF446C00B0D220 /* Localizable.strings */,
+				04AE7AA820F726DD00BA7D6A /* Extension */,
 				04AE7A5820F724FD00BA7D6A /* Service */,
 				04AE7AA720F7253800BA7D6A /* Helper */,
 				04AE7AB520F72BD300BA7D6A /* CustomView */,
@@ -128,7 +136,7 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
-		04AE7AA820F726DD00BA7D6A /* UIExtension */ = {
+		04AE7AA820F726DD00BA7D6A /* Extension */ = {
 			isa = PBXGroup;
 			children = (
 				04AE7AAF20F7270300BA7D6A /* UIColor+Hex.h */,
@@ -140,7 +148,7 @@
 				04AE7AAE20F7270300BA7D6A /* UIViewController+BarItem.h */,
 				04AE7AA920F7270200BA7D6A /* UIViewController+BarItem.m */,
 			);
-			path = UIExtension;
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		04AE7AB520F72BD300BA7D6A /* CustomView */ = {
@@ -175,8 +183,8 @@
 		04AE7AD120F749FD00BA7D6A /* 内购 */ = {
 			isa = PBXGroup;
 			children = (
-				04AE7A8E20F724FD00BA7D6A /* AppPurchaseManager.h */,
-				04AE7A6720F724FD00BA7D6A /* AppPurchaseManager.m */,
+				048158A520FF40DA00B0D220 /* LLPurchaseManager.h */,
+				048158A420FF40DA00B0D220 /* LLPurchaseManager.m */,
 			);
 			path = "内购";
 			sourceTree = "<group>";
@@ -231,6 +239,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 04AE7A3620F7239E00BA7D6A;
 			productRefGroup = 04AE7A4020F7239E00BA7D6A /* Products */;
@@ -248,6 +257,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04AE7A4F20F723A000BA7D6A /* LaunchScreen.storyboard in Resources */,
+				048158AA20FF446C00B0D220 /* Localizable.strings in Resources */,
 				04AE7A4C20F723A000BA7D6A /* Assets.xcassets in Resources */,
 				04AE7A4A20F7239E00BA7D6A /* Main.storyboard in Resources */,
 			);
@@ -262,7 +272,6 @@
 			files = (
 				04AE7A4720F7239E00BA7D6A /* ViewController.m in Sources */,
 				04AE7A9720F724FD00BA7D6A /* LLAlertHelper.m in Sources */,
-				04AE7A9620F724FD00BA7D6A /* AppPurchaseManager.m in Sources */,
 				04AE7AD520F74A1300BA7D6A /* LLPermissionManager.m in Sources */,
 				04AE7AC920F72BD400BA7D6A /* LLCustomPickerView.m in Sources */,
 				04AE7AB120F7270300BA7D6A /* UIViewController+BarItem.m in Sources */,
@@ -273,6 +282,7 @@
 				04AE7A5220F723A000BA7D6A /* main.m in Sources */,
 				04AE7AB420F7270300BA7D6A /* UIView+EasyLayout.m in Sources */,
 				04AE7ACA20F72BD400BA7D6A /* LLWaterView.m in Sources */,
+				048158A620FF40DA00B0D220 /* LLPurchaseManager.m in Sources */,
 				04AE7A4420F7239E00BA7D6A /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,10 +290,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		048158AC20FF446C00B0D220 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				048158AB20FF446C00B0D220 /* en */,
+				048158AF20FF447700B0D220 /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		04AE7A4820F7239E00BA7D6A /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				04AE7A4920F7239E00BA7D6A /* Base */,
+				048158AD20FF447700B0D220 /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -292,6 +312,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				04AE7A4E20F723A000BA7D6A /* Base */,
+				048158AE20FF447700B0D220 /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -303,6 +324,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -340,6 +362,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREFIX_HEADER = LLUnits_OC/LLUnits_OC.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -361,6 +384,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -396,6 +420,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = LLUnits_OC/LLUnits_OC.pch;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;

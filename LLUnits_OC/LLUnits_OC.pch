@@ -1,0 +1,25 @@
+//
+//  LLUnits_OC.pch
+//  LLUnits_OC
+//
+//  Created by mac on 2018/7/18.
+//  Copyright © 2018年 luoliu. All rights reserved.
+//
+
+#ifndef LLUnits_OC_pch
+#define LLUnits_OC_pch
+
+#define SCREEN_WIDTH    ([UIScreen mainScreen].bounds.size.width)
+#define SCREEN_HEIGHT   ([UIScreen mainScreen].bounds.size.height)
+
+#define EasyLocalizedString(key) NSLocalizedString((key), nil)
+#import "UIColor+Hex.h"
+#import "UIImage+Color.h"
+#import "UIView+EasyLayout.h"
+#import "UIViewController+BarItem.h"
+
+#import "LLAlertHelper.h"
+#import "LLPurchaseManager.h"
+#import "LLPermissionManager.h"
+
+#endif /* LLUnits_OC_pch */

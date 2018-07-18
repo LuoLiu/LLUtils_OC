@@ -1,0 +1,28 @@
+/* 
+  Localizable.strings
+  Cleaner
+
+  Created by mac on 2018/7/18.
+  Copyright © 2018年 luoliu. All rights reserved.
+*/
+
+/*** Common ***/
+"Tips" = "提示";
+"OK" = "确定";
+"Cancel" = "取消";
+"Done" = "完成";
+
+/*** LLPermissionManager ***/
+"Photos" = "照片";
+"Camera" = "相机";
+"MediaLibrary" = "媒体资料库";
+"Microphone" = "麦克风";
+"Location" = "位置";
+"SpeechRecognizer" = "语音识别";
+"Calendar" = "日历";
+"Contacts" = "通讯录";
+"%@ want to get your %@ permisson，you can open it in Settings." = "%@需要获取您的%@权限，请到系统设置页面进行授权";
+
+/*** LLPurchaseManager ***/
+"Request products faild, please try again." = "获取内购信息失败，请重试";
+

@@ -1,5 +1,5 @@
 //
-//  AppPurchaseManager.m
+//  LLPurchaseManager.m
 //  LLUnits_OC
 //
 //  Created by mac on 2018/6/10.
@@ -12,19 +12,19 @@
 #define ItunesCheckURL @"https://buy.itunes.apple.com/verifyReceipt"
 #endif
 
-#import "AppPurchaseManager.h"
+#import "LLPurchaseManager.h"
 
-@interface AppPurchaseManager()<SKPaymentTransactionObserver,SKProductsRequestDelegate>
+@interface LLPurchaseManager()<SKPaymentTransactionObserver,SKProductsRequestDelegate>
 
 @property (nonatomic, strong) NSMutableDictionary *productDict;
 
 @end
 
-static AppPurchaseManager *sharedManager = nil;
+static LLPurchaseManager *sharedManager = nil;
 
-@implementation AppPurchaseManager
+@implementation LLPurchaseManager
 
-+ (AppPurchaseManager *)sharedManager {
++ (LLPurchaseManager *)sharedManager {
     static dispatch_once_t token;
     dispatch_once(&token, ^{
         sharedManager = [[self alloc] init];
@@ -82,8 +82,7 @@ static AppPurchaseManager *sharedManager = nil;
 - (void)request:(SKRequest *)request didFailWithError:(NSError *)error {
     [self.delegate canceldWithProductID:nil];
     NSLog(@"%@", error);
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"获取内购信息失败，请重试" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-    [alert show];
+    [LLAlertHelper showAlert:EasyLocalizedString(@"Tips") message:EasyLocalizedString(@"Request products faild, please try again.")];
 }
 
 /**
@@ -118,15 +117,15 @@ static AppPurchaseManager *sharedManager = nil;
             [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
         }
         else if (SKPaymentTransactionStateFailed == transaction.transactionState) {
-            NSLog(@"交易失败");
+            NSLog(@"SKPaymentTransactionState-----Failed");
             [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
             [self.delegate canceldWithProductID:transaction.payment.productIdentifier];
         }
         else if (SKPaymentTransactionStatePurchasing == transaction.transactionState) {
-            NSLog(@"正在购买");
+            NSLog(@"SKPaymentTransactionState-----Purchasing");
         }
         else {
-            NSLog(@"已经购买");
+            NSLog(@"SKPaymentTransactionState-----Purchased");
             [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
         }
     }
