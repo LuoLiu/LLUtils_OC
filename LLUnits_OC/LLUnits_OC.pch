@@ -17,6 +17,7 @@
 #import "UIImage+Color.h"
 #import "UIView+EasyLayout.h"
 #import "UIViewController+BarItem.h"
+#import "NSArray+Enum.h"
 
 #import "LLAlertHelper.h"
 #import "LLPurchaseManager.h"

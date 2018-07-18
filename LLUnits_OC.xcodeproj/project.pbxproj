@@ -10,6 +10,7 @@
 		048158A620FF40DA00B0D220 /* LLPurchaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 048158A420FF40DA00B0D220 /* LLPurchaseManager.m */; };
 		048158AA20FF446C00B0D220 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 048158AC20FF446C00B0D220 /* Localizable.strings */; };
 		048158B220FF46A200B0D220 /* ImageSimilarity.m in Sources */ = {isa = PBXBuildFile; fileRef = 048158B120FF46A100B0D220 /* ImageSimilarity.m */; };
+		048158B620FF473F00B0D220 /* NSArray+Enum.m in Sources */ = {isa = PBXBuildFile; fileRef = 048158B420FF473F00B0D220 /* NSArray+Enum.m */; };
 		04AE7A4420F7239E00BA7D6A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AE7A4320F7239E00BA7D6A /* AppDelegate.m */; };
 		04AE7A4720F7239E00BA7D6A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AE7A4620F7239E00BA7D6A /* ViewController.m */; };
 		04AE7A4A20F7239E00BA7D6A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04AE7A4820F7239E00BA7D6A /* Main.storyboard */; };
@@ -38,6 +39,8 @@
 		048158AF20FF447700B0D220 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		048158B020FF46A100B0D220 /* ImageSimilarity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageSimilarity.h; sourceTree = "<group>"; };
 		048158B120FF46A100B0D220 /* ImageSimilarity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageSimilarity.m; sourceTree = "<group>"; };
+		048158B420FF473F00B0D220 /* NSArray+Enum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Enum.m"; sourceTree = "<group>"; };
+		048158B520FF473F00B0D220 /* NSArray+Enum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Enum.h"; sourceTree = "<group>"; };
 		04AE7A3F20F7239E00BA7D6A /* LLUnits_OC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LLUnits_OC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04AE7A4220F7239E00BA7D6A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		04AE7A4320F7239E00BA7D6A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -160,6 +163,8 @@
 				04AE7AAC20F7270300BA7D6A /* UIView+EasyLayout.m */,
 				04AE7AAE20F7270300BA7D6A /* UIViewController+BarItem.h */,
 				04AE7AA920F7270200BA7D6A /* UIViewController+BarItem.m */,
+				048158B520FF473F00B0D220 /* NSArray+Enum.h */,
+				048158B420FF473F00B0D220 /* NSArray+Enum.m */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -286,6 +291,7 @@
 				04AE7A4720F7239E00BA7D6A /* ViewController.m in Sources */,
 				04AE7A9720F724FD00BA7D6A /* LLAlertHelper.m in Sources */,
 				04AE7AD520F74A1300BA7D6A /* LLPermissionManager.m in Sources */,
+				048158B620FF473F00B0D220 /* NSArray+Enum.m in Sources */,
 				04AE7AC920F72BD400BA7D6A /* LLCustomPickerView.m in Sources */,
 				04AE7AB120F7270300BA7D6A /* UIViewController+BarItem.m in Sources */,
 				04AE7AB320F7270300BA7D6A /* UIColor+Hex.m in Sources */,

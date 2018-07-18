@@ -1,0 +1,19 @@
+//
+//  NSArray+Enum.h
+//  LLUnits_OC
+//
+//  Created by mac on 2018/6/7.
+//  Copyright © 2018年 luoliu. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+@interface NSArray (Enum)
+
+- (NSString *)stringWithEnum:(NSUInteger)enumVal;
+
+- (NSUInteger)enumFromString:(NSString*)strVal default:(NSUInteger)def;
+
+- (NSUInteger)enumFromString:(NSString*)strVal;
+
+@end

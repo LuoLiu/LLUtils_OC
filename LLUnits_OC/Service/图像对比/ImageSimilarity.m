@@ -1,6 +1,6 @@
 //
 //  ImageSimilarity.m
-//  iManager
+//  LLUnits_OC
 //
 //  Created by mac on 2018/7/6.
 //  Copyright © 2018年 luoliu. All rights reserved.
