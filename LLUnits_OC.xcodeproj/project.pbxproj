@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		048158A620FF40DA00B0D220 /* LLPurchaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 048158A420FF40DA00B0D220 /* LLPurchaseManager.m */; };
 		048158AA20FF446C00B0D220 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 048158AC20FF446C00B0D220 /* Localizable.strings */; };
+		048158B220FF46A200B0D220 /* ImageSimilarity.m in Sources */ = {isa = PBXBuildFile; fileRef = 048158B120FF46A100B0D220 /* ImageSimilarity.m */; };
 		04AE7A4420F7239E00BA7D6A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AE7A4320F7239E00BA7D6A /* AppDelegate.m */; };
 		04AE7A4720F7239E00BA7D6A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AE7A4620F7239E00BA7D6A /* ViewController.m */; };
 		04AE7A4A20F7239E00BA7D6A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04AE7A4820F7239E00BA7D6A /* Main.storyboard */; };
@@ -35,6 +36,8 @@
 		048158AD20FF447700B0D220 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		048158AE20FF447700B0D220 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		048158AF20FF447700B0D220 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		048158B020FF46A100B0D220 /* ImageSimilarity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageSimilarity.h; sourceTree = "<group>"; };
+		048158B120FF46A100B0D220 /* ImageSimilarity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageSimilarity.m; sourceTree = "<group>"; };
 		04AE7A3F20F7239E00BA7D6A /* LLUnits_OC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LLUnits_OC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04AE7A4220F7239E00BA7D6A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		04AE7A4320F7239E00BA7D6A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -78,6 +81,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		048158B320FF46AD00B0D220 /* 图像对比 */ = {
+			isa = PBXGroup;
+			children = (
+				048158B020FF46A100B0D220 /* ImageSimilarity.h */,
+				048158B120FF46A100B0D220 /* ImageSimilarity.m */,
+			);
+			path = "图像对比";
+			sourceTree = "<group>";
+		};
 		04AE7A3620F7239E00BA7D6A = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +133,7 @@
 			children = (
 				04AE7AD220F74A1300BA7D6A /* 权限请求 */,
 				04AE7AD120F749FD00BA7D6A /* 内购 */,
+				048158B320FF46AD00B0D220 /* 图像对比 */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -282,6 +295,7 @@
 				04AE7A5220F723A000BA7D6A /* main.m in Sources */,
 				04AE7AB420F7270300BA7D6A /* UIView+EasyLayout.m in Sources */,
 				04AE7ACA20F72BD400BA7D6A /* LLWaterView.m in Sources */,
+				048158B220FF46A200B0D220 /* ImageSimilarity.m in Sources */,
 				048158A620FF40DA00B0D220 /* LLPurchaseManager.m in Sources */,
 				04AE7A4420F7239E00BA7D6A /* AppDelegate.m in Sources */,
 			);
