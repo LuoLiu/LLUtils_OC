@@ -12,14 +12,15 @@
 @implementation UIViewController (BarItem)
 
 // 设置导航栏背景色和标题
-- (void)addNavigationBarWithColor:(UIColor *)bgColor title:(NSString *)title {
+- (void)addNavigationBarWithTitle:(NSString *)title {
     NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:
                                 [UIColor whiteColor], NSForegroundColorAttributeName,
-                                [UIFont boldSystemFontOfSize:14], NSFontAttributeName, nil];
+                                [UIFont boldSystemFontOfSize:15], NSFontAttributeName, nil];
     [self.navigationController.navigationBar setTitleTextAttributes:attributes];
     [self setTitle:title];
     
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:bgColor] forBarMetrics:UIBarMetricsDefault];
+    UIColor *color = [UIColor colorWithHexString:@"#547ACA"];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:color] forBarMetrics:UIBarMetricsDefault];
 }
 
 // 设置导航栏是否透明
@@ -29,8 +30,20 @@
         [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
         [self.navigationController.navigationBar setBarStyle:UIBarStyleBlack];
     } else {
-        // TODO: 不透明时自定义样式
+        UIColor *color = [UIColor colorWithHexString:@"#547ACA"];
+        [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:color] forBarMetrics:UIBarMetricsDefault];
     }
+}
+
+// 添加返回按钮
+- (void)addBackButton {
+    UIImage *image = [[UIImage imageNamed:@"bar_btn_back"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:image style:UIBarButtonItemStylePlain target:self action:@selector(goBack)];
+    [self.navigationItem setLeftBarButtonItem:item];
+}
+
+- (void)goBack {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 // 添加自定义按钮 (左)

@@ -13,6 +13,7 @@
 #define SCREEN_HEIGHT   ([UIScreen mainScreen].bounds.size.height)
 
 #define EasyLocalizedString(key) NSLocalizedString((key), nil)
+
 #import "UIColor+Hex.h"
 #import "UIImage+Color.h"
 #import "UIView+EasyLayout.h"

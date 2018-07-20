@@ -11,10 +11,13 @@
 @interface UIViewController (BarItem)
 
 // 设置导航栏背景色和标题
-- (void)addNavigationBarWithColor:(UIColor *)bgColor title:(NSString *)title;
+- (void)addNavigationBarWithTitle:(NSString *)title;
 
 // 设置导航是否透明
 - (void)setNavigationBarTransparent:(BOOL)transparent;
+
+// 添加返回按钮 popViewControllerAnimated
+- (void)addBackButton;
 
 // 添加自定义按钮 (左)
 - (void)addLeftBarButtonWithImage:(UIImage *)image action:(SEL)action;
